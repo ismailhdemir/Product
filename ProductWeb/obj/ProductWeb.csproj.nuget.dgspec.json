@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aaa\\Source\\Repos\\WebApp\\ProductWeb\\ProductWeb\\ProductWeb.csproj": {}
+    "C:\\Users\\aaa\\Source\\Repos\\Product\\ProductWeb\\ProductWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aaa\\Source\\Repos\\WebApp\\ProductWeb\\ProductWeb\\ProductWeb.csproj": {
+    "C:\\Users\\aaa\\Source\\Repos\\Product\\ProductWeb\\ProductWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aaa\\Source\\Repos\\WebApp\\ProductWeb\\ProductWeb\\ProductWeb.csproj",
+        "projectUniqueName": "C:\\Users\\aaa\\Source\\Repos\\Product\\ProductWeb\\ProductWeb.csproj",
         "projectName": "ProductWeb",
-        "projectPath": "C:\\Users\\aaa\\Source\\Repos\\WebApp\\ProductWeb\\ProductWeb\\ProductWeb.csproj",
+        "projectPath": "C:\\Users\\aaa\\Source\\Repos\\Product\\ProductWeb\\ProductWeb.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aaa\\Source\\Repos\\WebApp\\ProductWeb\\ProductWeb\\obj\\",
+        "outputPath": "C:\\Users\\aaa\\Source\\Repos\\Product\\ProductWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -53,6 +53,16 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.4, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
