@@ -19,7 +19,6 @@ namespace ProductWeb.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<User>> Login([FromBody] User user)
         {
-            // Şifrenin doğrudan User modelinde yer almadığını kontrol et
             if (string.IsNullOrEmpty(user.PasswordHash))
                 return BadRequest("Password is required.");
 
