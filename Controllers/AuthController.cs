@@ -36,7 +36,7 @@ namespace ProductWeb.Controllers
                 return BadRequest("Username and Password are required.");
 
             var createdUser = await _userService.CreateUser(newUser);
-            return CreatedAtAction(nameof(Register), new { id = createdUser.Id }, createdUser);
+            return CreatedAtAction(nameof(Register), new { id = createdUser.id }, createdUser);
         }
     }
 }

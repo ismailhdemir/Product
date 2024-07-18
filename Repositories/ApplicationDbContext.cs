@@ -25,8 +25,8 @@ namespace ProductWeb.Repositories
             modelBuilder.Entity<User>().ToTable("users", "public");
             modelBuilder.Entity<User>().Property(u => u.Username).HasColumnName("Username");
             modelBuilder.Entity<User>().Property(u => u.PasswordHash).HasColumnName("PasswordHash");
-            modelBuilder.Entity<User>().Property(u => u.CreatedAt).HasColumnName("CreatedAt");
-            modelBuilder.Entity<User>().HasKey(u => u.Id);
+            modelBuilder.Entity<User>().Property(u => u.createdAt).HasColumnName("CreatedAt");
+            modelBuilder.Entity<User>().HasKey(u => u.id);
         }
     }
 }
