@@ -1,5 +1,5 @@
-﻿using ProductWeb.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using ProductWeb.Models;
 
 namespace ProductWeb.Repositories.Interfaces
 {

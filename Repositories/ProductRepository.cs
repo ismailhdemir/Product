@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProductWeb.Models;
 using ProductWeb.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using ProductWeb.Models;
 namespace ProductWeb.Repositories
 {
     public class ProductRepository : IProductRepository

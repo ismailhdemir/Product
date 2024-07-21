@@ -32,6 +32,23 @@ namespace ProductWeb.Migrations
                 {
                     table.PrimaryKey("PK_products", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "User",
+                schema: "public",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Username = table.Column<string>(type: "text", nullable: false),
+                    PasswordHash = table.Column<string>(type: "text", nullable: false),
+                    Password = table.Column<string>(type: "text", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_User", x => x.Id);
+                });
         }
 
         /// <inheritdoc />
@@ -39,6 +56,10 @@ namespace ProductWeb.Migrations
         {
             migrationBuilder.DropTable(
                 name: "products",
+                schema: "public");
+
+            migrationBuilder.DropTable(
+                name: "User",
                 schema: "public");
         }
     }

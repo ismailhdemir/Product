@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProductWeb.Models;
 using ProductWeb.Repositories.Interfaces;
 using System.Threading.Tasks;
-
+using ProductWeb.Models;
 namespace ProductWeb.Repositories
 {
     public class UserRepository : IUserRepository

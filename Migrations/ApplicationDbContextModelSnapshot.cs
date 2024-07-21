@@ -32,7 +32,7 @@ namespace ProductWeb.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("creationDate");
+                        .HasColumnName("CreationDate");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric")
@@ -70,7 +70,8 @@ namespace ProductWeb.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("Password");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
@@ -84,7 +85,7 @@ namespace ProductWeb.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("users", "public");
+                    b.ToTable("User", "public");
                 });
 #pragma warning restore 612, 618
         }

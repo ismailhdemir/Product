@@ -1,5 +1,4 @@
 ﻿using BCrypt.Net;
-using ProductWeb.Helpers;
 
 namespace ProductWeb.Helpers
 {

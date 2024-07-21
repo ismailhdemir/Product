@@ -17,12 +17,12 @@ namespace ProductWeb.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<User>> Login([FromBody] User user)
+        public async Task<ActionResult<User>> Login([FromBody] LoginRequest loginRequest)
         {
-            if (string.IsNullOrEmpty(user.PasswordHash))
-                return BadRequest("Password is required.");
+            if (string.IsNullOrEmpty(loginRequest.Username) || string.IsNullOrEmpty(loginRequest.Password))
+                return BadRequest("Username and Password are required.");
 
-            var loggedInUser = await _userService.ValidateUser(user.Username, user.PasswordHash);
+            var loggedInUser = await _userService.ValidateUser(loginRequest.Username, loginRequest.Password);
             if (loggedInUser == null)
                 return Unauthorized();
 
@@ -32,11 +32,11 @@ namespace ProductWeb.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<User>> Register([FromBody] User newUser)
         {
-            if (string.IsNullOrEmpty(newUser.Username) || string.IsNullOrEmpty(newUser.PasswordHash))
+            if (string.IsNullOrEmpty(newUser.Username) || string.IsNullOrEmpty(newUser.Password))
                 return BadRequest("Username and Password are required.");
 
             var createdUser = await _userService.CreateUser(newUser);
-            return CreatedAtAction(nameof(Register), new { id = createdUser.id }, createdUser);
+            return CreatedAtAction(nameof(Register), new { id = createdUser.Id }, createdUser);
         }
     }
 }
