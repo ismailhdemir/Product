@@ -1,6 +1,6 @@
-﻿using ProductWeb.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using ProductWeb.Models; 
 
 namespace ProductWeb.Repositories.Interfaces
 {

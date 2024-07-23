@@ -10,6 +10,7 @@ namespace ProductWeb.Repositories
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -17,11 +18,15 @@ namespace ProductWeb.Repositories
             modelBuilder.Entity<Product>().Property(p => p.ProductName).HasColumnName("ProductName");
             modelBuilder.Entity<Product>().Property(p => p.Price).HasColumnName("Price");
             modelBuilder.Entity<Product>().Property(p => p.StockQuantity).HasColumnName("StockQuantity");
-            modelBuilder.Entity<Product>().Property(p => p.CreationDate).HasColumnName("creationDate");
+            modelBuilder.Entity<Product>().Property(p => p.CreationDate).HasColumnName("CreationDate");
             modelBuilder.Entity<Product>().Property(p => p.ProductGroupId).HasColumnName("ProductGroupId");
             modelBuilder.Entity<Product>().HasKey(p => p.Id);
-            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-        }
 
+            modelBuilder.Entity<User>().ToTable("User", "public");
+            modelBuilder.Entity<User>().Property(u => u.Username).HasColumnName("Username");
+            modelBuilder.Entity<User>().Property(u => u.Password).HasColumnName("Password");
+            modelBuilder.Entity<User>().Property(u => u.CreatedAt).HasColumnName("CreatedAt");
+            modelBuilder.Entity<User>().HasKey(u => u.Id);
+        }
     }
 }

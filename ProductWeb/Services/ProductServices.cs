@@ -1,10 +1,9 @@
-﻿using ProductWeb.Models;
-using ProductWeb.Repositories.Interfaces;
+﻿using ProductWeb.Repositories.Interfaces;
 using ProductWeb.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using ProductWeb.Models;
 namespace ProductWeb.Services
 {
     public class ProductService : IProductService

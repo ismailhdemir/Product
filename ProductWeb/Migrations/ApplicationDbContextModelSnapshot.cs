@@ -32,7 +32,7 @@ namespace ProductWeb.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("creationDate");
+                        .HasColumnName("CreationDate");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric")
@@ -54,6 +54,38 @@ namespace ProductWeb.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("products", "public");
+                });
+
+            modelBuilder.Entity("ProductWeb.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("CreatedAt");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("Password");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("PasswordHash");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("Username");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("User", "public");
                 });
 #pragma warning restore 612, 618
         }
