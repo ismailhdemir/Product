@@ -1,9 +1,7 @@
-﻿using ProductWeb.Repositories.Interfaces;
+﻿using ProductWeb.Models;
+using ProductWeb.Repositories.Interfaces;
 using ProductWeb.Services.Interfaces;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
-using ProductWeb.Models;
 
 namespace ProductWeb.Services
 {
@@ -19,7 +17,7 @@ namespace ProductWeb.Services
         public async Task<User> ValidateUser(string username, string password)
         {
             var user = await _userRepository.GetUserByUsernameAsync(username);
-            if (user != null && VerifyPasswordHash(password, user.Password))
+            if (user != null && user.Password == password)
             {
                 return user;
             }
@@ -28,23 +26,12 @@ namespace ProductWeb.Services
 
         public async Task<User> CreateUser(User newUser)
         {
-            newUser.Password = HashPassword(newUser.Password);
             return await _userRepository.CreateAsync(newUser);
         }
 
-        private bool VerifyPasswordHash(string password, string storedPassword)
+        public async Task<User> GetUserByUsername(string username)
         {
-            var computedHash = HashPassword(password);
-            return computedHash == storedPassword;
-        }
-
-        private string HashPassword(string password)
-        {
-            using (var hmac = new HMACSHA256())
-            {
-                var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return Convert.ToBase64String(hash);
-            }
+            return await _userRepository.GetUserByUsernameAsync(username);
         }
     }
 }

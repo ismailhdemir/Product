@@ -7,5 +7,6 @@ namespace ProductWeb.Services.Interfaces
     {
         Task<User> ValidateUser(string username, string password);
         Task<User> CreateUser(User newUser);
+        Task<User> GetUserByUsername(string username); 
     }
 }

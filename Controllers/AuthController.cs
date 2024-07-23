@@ -24,7 +24,7 @@ namespace ProductWeb.Controllers
 
             var loggedInUser = await _userService.ValidateUser(loginRequest.Username, loginRequest.Password);
             if (loggedInUser == null)
-                return Unauthorized();
+                return Unauthorized("Invalid username or password.");
 
             return Ok(loggedInUser);
         }
@@ -34,6 +34,10 @@ namespace ProductWeb.Controllers
         {
             if (string.IsNullOrEmpty(newUser.Username) || string.IsNullOrEmpty(newUser.Password))
                 return BadRequest("Username and Password are required.");
+
+            var existingUser = await _userService.GetUserByUsername(newUser.Username);
+            if (existingUser != null)
+                return Conflict("User already exists.");
 
             var createdUser = await _userService.CreateUser(newUser);
             return CreatedAtAction(nameof(Register), new { id = createdUser.Id }, createdUser);
